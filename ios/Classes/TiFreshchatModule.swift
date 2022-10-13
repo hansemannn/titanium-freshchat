@@ -98,8 +98,8 @@ class TiFreshchatModule: TiModule {
   }
 
   @objc(showConversations:)
-  func showConversations(args: [Any]) {
-    Freshchat.sharedInstance().showConversations(TiApp().controller.topPresentedController())
+  func showConversations(unused: [Any]?) {
+    Freshchat.sharedInstance().showConversations(TiApp.sharedApp().controller.topPresentedController())
   }
 }
 

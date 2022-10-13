@@ -4,22 +4,23 @@ import Freshchat from 'ti.freshchat';
 
 const APP_ID = 'YOUR_APP_ID';
 const APP_KEY = 'YOUR_APP_KEY';
+const APP_DOMAIN = null; // optional
 
 // -------- Set your credentials here --------
 
 const window = Ti.UI.createWindow({ layout: 'vertical' });
 window.addEventListener('open', () => initializeSDK());
 
-addButton('Sign in user');
-addButton('Update user');
-addButton('Reset user');
-addButton('Track event');
-addButton('Open conversations');
+addButton('Sign in user', signInUser);
+addButton('Update user', updateUser);
+addButton('Reset user', signOutUser);
+addButton('Track event', trackEvent);
+addButton('Show conversations', showConversations);
 
 window.open();
 
 function initializeSDK() {
-	Freshchat.initialize({ appId: APP_ID, appKey: APP_KEY });
+	Freshchat.initialize({ appId: APP_ID, appKey: APP_KEY, domain: APP_DOMAIN });
 }
 
 function addButton(title, action) {
@@ -45,6 +46,6 @@ function trackEvent() {
 	Freshchat.trackEvent('test_event', { prop1: true, hello: 'tirocks' });	
 }
 
-function openConversions() {
-	Freshchat.openConversions();
+function showConversations() {
+	Freshchat.showConversations();
 }

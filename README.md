@@ -2,6 +2,24 @@
 
 Use the native Freshchat SDK (iOS / Android) in Titanium
 
+## Setup
+
+### iOS
+
+No setup required
+
+### Android
+
+Add the following contents to your [app]/platform/android/build.gradle
+```gradle
+allprojects {
+  repositories {
+    jcenter()
+    maven { url "https://jitpack.io" }
+  }
+}
+```
+
 ## Example
 
 See the [app.js](./example/app.js) for a full-featured example!
