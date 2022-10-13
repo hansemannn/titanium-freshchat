@@ -1,0 +1,7 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 effective-4.1.50 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target i386-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4 -enforce-exclusivity=checked -O -module-name FreshchatSDK
+import Foundation
+@_exported import FreshchatSDK
+import Swift
+import _Concurrency

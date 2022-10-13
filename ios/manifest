@@ -1,0 +1,19 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: arm64 x86_64
+mac: false
+description: titanium-freshchat
+author: Hans Knöchel
+license: MIT
+copyright: Copyright (c) 2022 by Hans Knöchel
+
+# these should not be edited
+name: titanium-freshchat
+moduleid: ti.freshchat
+guid: 3ff52391-b61c-4b8f-859c-e44bff8dbac1
+platform: iphone
+minsdk: 10.0.0
