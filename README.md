@@ -30,9 +30,13 @@ See the [app.js](./example/app.js) for a full-featured example!
 
 Initializes the SDK. The `domain` is optional.
 
+### `identifyUser(externalId)`
+
+Identifies a user with Freshchat for usage with an external user ID (e.g. of your own database)
+
 ### `signInUser({ firstName, lastName, email })`
 
-Authenticates a user with Freshchat. All values are optional!
+Signs in a user with Freshchat. All values are optional!
 
 ### `updateUserProperty(key, value)`
 

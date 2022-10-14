@@ -37,6 +37,11 @@ class TitaniumFreshchatModule: KrollModule() {
 	}
 
 	@Kroll.method
+	fun identifyUser(externalId: String) {
+		instance().identifyUser(externalId, null)
+	}
+
+	@Kroll.method
 	fun signInUser(params: KrollDict) {
 		val firstName = params.getString("firstName")
 		val lastName = params.getString("lastName")

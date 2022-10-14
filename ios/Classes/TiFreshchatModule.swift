@@ -53,6 +53,13 @@ class TiFreshchatModule: TiModule {
     Freshchat.sharedInstance().initWith(config)
   }
   
+  @objc(identifyUser:)
+  func identifyUser(args: [Any]) {
+    guard let externalId = args.first as? String else { fatalError("Missing parameters") }
+
+    Freshchat.sharedInstance().identifyUser(withExternalID: externalId, restoreID: nil)
+  }
+  
   @objc(signInUser:)
   func signInUser(args: [Any]) {
     guard let params = args.first as? [String: String] else { fatalError("Missing parameters") }
@@ -71,7 +78,7 @@ class TiFreshchatModule: TiModule {
     }
     
     if let email = params["email"] {
-      //To set user's email id
+      // To set user's email
       user.email = email
     }
   
