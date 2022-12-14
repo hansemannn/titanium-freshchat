@@ -51,6 +51,13 @@ class TiFreshchatModule: TiModule {
     }
     
     Freshchat.sharedInstance().initWith(config)
+    
+    // To listen to restore id generated event:
+    // Register for local notification
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(userRestoreIdReceived),
+                                           name: NSNotification.Name(rawValue: FRESHCHAT_USER_RESTORE_ID_GENERATED),
+                                           object: nil)
   }
   
   @objc(identifyUser:)
@@ -84,6 +91,11 @@ class TiFreshchatModule: TiModule {
   
     Freshchat.sharedInstance().setUser(user)
   }
+  
+  @objc(getRestoreID:)
+  func getRestoreID(unused: [Any]?) -> String? {
+    return FreshchatUser.sharedInstance().restoreID
+  }
 
   @objc(updateUserProperty:)
   func updateUserProperty(args: [Any]) {
@@ -107,6 +119,13 @@ class TiFreshchatModule: TiModule {
   @objc(showConversations:)
   func showConversations(unused: [Any]?) {
     Freshchat.sharedInstance().showConversations(TiApp.sharedApp().controller.topPresentedController())
+  }
+  
+  @objc private func userRestoreIdReceived() {
+    fireEvent("userRestoreIdReceived", with: [
+      "restoreID": FreshchatUser.sharedInstance().restoreID ?? "",
+      "externalID": FreshchatUser.sharedInstance().externalID ?? ""
+    ])
   }
 }
 

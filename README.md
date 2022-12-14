@@ -46,6 +46,10 @@ Updates a given user property (`key`) by it's `value`.
 
 Resets a user in Freshchat
 
+### `getRestoreID()` (iOS only)
+
+Receives the restore ID of the user (may be null if not defined)
+
 ### `trackEvent(eventName, parameters)`
 
 Tracks an event by a given `eventName`. The `parameters` are optional.
@@ -59,6 +63,13 @@ Opens the conversation list.
 Registers the given `fcmToken` with Freshchat. On iOS, this is handled internally by
 the corresponding `didRegisterForRemoteNotificationsWithDeviceToken:` selector of the
 `UIApplicationDelegate`.
+
+## Events
+
+### `userRestoreIdReceived` (iOS only)
+
+Called when the restore ID has been received by the module. It includes the
+keys `restoreID` and `externalID` which can both be optional.
 
 ## Author
 
