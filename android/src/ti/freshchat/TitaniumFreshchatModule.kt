@@ -9,6 +9,11 @@
 
 package ti.freshchat
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.freshchat.consumer.sdk.Freshchat
 import com.freshchat.consumer.sdk.FreshchatConfig
 import org.appcelerator.kroll.KrollDict
@@ -34,6 +39,20 @@ class TitaniumFreshchatModule: KrollModule() {
 		}
 
 		instance().init(config)
+
+		// Listen for restore updates
+		val broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+			override fun onReceive(context: Context?, intent: Intent?) {
+				val event = KrollDict()
+				event["restoreID"] = Freshchat.getInstance(TiApplication.getInstance()).user.restoreId
+				event["externalID"] = Freshchat.getInstance(TiApplication.getInstance()).user.externalId
+
+				fireEvent("userRestoreIdReceived", event)
+			}
+		}
+
+		val intentFilter = IntentFilter(Freshchat.FRESHCHAT_USER_RESTORE_ID_GENERATED);
+		LocalBroadcastManager.getInstance(TiApplication.getInstance()).registerReceiver(broadcastReceiver, intentFilter);
 	}
 
 	@Kroll.method
@@ -85,5 +104,10 @@ class TitaniumFreshchatModule: KrollModule() {
 	@Kroll.method
 	fun registerForPushNotifications(fcmToken: String) {
 		Freshchat.getInstance(TiApplication.getInstance()).setPushRegistrationToken(fcmToken);
+	}
+
+	@Kroll.method
+	fun getRestoreID(): String? {
+		return Freshchat.getInstance(TiApplication.getInstance()).user.restoreId
 	}
 }
