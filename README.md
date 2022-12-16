@@ -1,6 +1,6 @@
 # Titanium Freshchat SDK
 
-Use the native Freshchat SDK (iOS / Android) in Titanium
+Use the native Freshchat SDK (iOS / Android) in Titanium. All APIs are 100 % cross-platform! 🤘
 
 ## Setup
 
@@ -46,7 +46,7 @@ Updates a given user property (`key`) by it's `value`.
 
 Resets a user in Freshchat
 
-### `getRestoreID()` (iOS only)
+### `getRestoreID()`
 
 Receives the restore ID of the user (may be null if not defined)
 
@@ -66,7 +66,7 @@ the corresponding `didRegisterForRemoteNotificationsWithDeviceToken:` selector o
 
 ## Events
 
-### `userRestoreIdReceived` (iOS only)
+### `userRestoreIdReceived`
 
 Called when the restore ID has been received by the module. It includes the
 keys `restoreID` and `externalID` which can both be optional.
