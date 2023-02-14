@@ -225,11 +225,20 @@
 "placeholder_phonenumber_text" = "Enter Phone number";
 "placeholder_email_text" = "Enter email";
 "placeholder_number_text" = "Enter number";
+"placeholder_feedback_text" = "Add your feedback here";
+
 
 /*Validation Error */
 "phonenumber_validationerror_text" = "Enter valid phone number";
 "email_validationerror_text" = "Enter valid email";
 "number_validationerror_text" = "Enter valid number";
+"character_limit_validationerror_text" = "Enter character length upto 500";
+
+/*Feedback Comment Thanks Prompt*/
+"thanks_feedback_comment_text" = "Thank you for the feedback";
+
+"submit_button_text" = "Submit";
+"rating_label_text" = "Rate us";
 
 /* File attachment*/
 "send_attachment_title_only_image" = "Upload an image";

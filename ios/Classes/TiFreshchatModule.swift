@@ -117,8 +117,17 @@ class TiFreshchatModule: TiModule {
   }
 
   @objc(showConversations:)
-  func showConversations(unused: [Any]?) {
-    Freshchat.sharedInstance().showConversations(TiApp.sharedApp().controller.topPresentedController())
+  func showConversations(args: [Any]?) {
+    let controller = TiApp.sharedApp().controller.topPresentedController()
+
+    if let message = args?.first as? String {
+      let options = ConversationOptions()
+      options.setTopicName(message, withReferenceID: UUID().uuidString)
+      Freshchat.sharedInstance().showConversations(controller!, with: ConversationOptions())
+    } else {
+      Freshchat.sharedInstance().showConversations(controller!)
+
+    }
   }
   
   @objc private func userRestoreIdReceived() {

@@ -4,6 +4,137 @@
 <dict>
 	<key>ConversationDetail</key>
 	<dict>
+		<key>FeedbackRatingStyle</key>
+		<dict>
+			<key>selectedfontName</key>
+			<string>SYS_SEMI_BOLD_FONT_NAME</string>
+			<key>selectedTitleTextColor</key>
+			<string>#12344D</string>
+			<key>fontName</key>
+			<string>SYS_DEFAULT_FONT_NAME</string>
+			<key>textColor</key>
+			<string>#475867
+</string>
+			<key>textSize</key>
+			<string>17.0f</string>
+			<key>backgroundColor</key>
+			<string>#FFFFFF</string>
+			<key>submitButtonStyle</key>
+			<dict>
+				<key>backgroundColor</key>
+				<string>#12344D</string>
+				<key>textColor</key>
+				<string>#FFFFFF</string>
+				<key>textSize</key>
+				<string>17.0f</string>
+				<key>fontName</key>
+				<string>SYS_SEMI_BOLD_FONT_NAME</string>
+			</dict>
+		</dict>
+		<key>FeedbackSuccessDialog</key>
+		<dict>
+			<key>dividerBackgroundColor</key>
+			<string>#EBEFF3</string>
+			<key>backgroundColor</key>
+			<string>#FEFFFF</string>
+			<key>fontName</key>
+			<string>SYS_DEFAULT_FONT_NAME</string>
+			<key>textColor</key>
+			<string>#475867
+
+
+
+#475867</string>
+			<key>textSize</key>
+			<string>15.0f</string>
+		</dict>
+		<key>FeedbackPollStyle</key>
+		<dict>
+			<key>dividerBackgroundColor</key>
+			<string>#EBEFF3</string>
+			<key>backgroundColor</key>
+			<string>#FFFFFF</string>
+			<key>submitButtonStyle</key>
+			<dict>
+				<key>backgroundColor</key>
+				<string>#12344D</string>
+				<key>textColor</key>
+				<string>#FFFFFF</string>
+				<key>textSize</key>
+				<string>17.0f</string>
+				<key>fontName</key>
+				<string>SYS_SEMI_BOLD_FONT_NAME</string>
+			</dict>
+			<key>optionButtonStyle</key>
+			<dict>
+				<key>selectedfontName</key>
+				<string>SYS_SEMI_BOLD_FONT_NAME</string>
+				<key>selectedTextColor</key>
+				<string>#2C5CC5</string>
+				<key>selectedColor</key>
+				<string>#E5F2FD</string>
+				<key>fontName</key>
+				<string>SYS_DEFAULT_FONT_NAME</string>
+				<key>textColor</key>
+				<string>#12344D</string>
+				<key>textSize</key>
+				<string>15.0f</string>
+				<key>backgroundColor</key>
+				<string>#EBEFF3</string>
+			</dict>
+		</dict>
+		<key>FeedbackSuccessDialog</key>
+		<dict>
+			<key>dividerBackgroundColor</key>
+			<string>#EBEFF3</string>
+			<key>backgroundColor</key>
+			<string>#FEFFFF</string>
+			<key>fontName</key>
+			<string>SYS_DEFAULT_FONT_NAME</string>
+			<key>textColor</key>
+			<string>#475867
+
+background: #475867;
+
+#475867</string>
+			<key>textSize</key>
+			<string>15.0f</string>
+		</dict>
+		<key>FeedbackPollStyle</key>
+		<dict>
+			<key>dividerBackgroundColor</key>
+			<string>#EBEFF3</string>
+			<key>backgroundColor</key>
+			<string>#FFFFFF</string>
+			<key>submitButtonStyle</key>
+			<dict>
+				<key>backgroundColor</key>
+				<string>#12344D</string>
+				<key>textColor</key>
+				<string>#FFFFFF</string>
+				<key>textSize</key>
+				<string>17.0f</string>
+				<key>fontName</key>
+				<string>SYS_SEMI_BOLD_FONT_NAME</string>
+			</dict>
+			<key>optionButtonStyle</key>
+			<dict>
+				<key>selectedfontName</key>
+				<string>SYS_SEMI_BOLD_FONT_NAME</string>
+				<key>selectedTextColor</key>
+				<string>#2C5CC5</string>
+				<key>selectedColor</key>
+				<string>#E5F2FD</string>
+				<key>fontName</key>
+				<string>SYS_DEFAULT_FONT_NAME</string>
+				<key>textColor</key>
+				<string>#12344D</string>
+				<key>textSize</key>
+				<string>15.0f</string>
+				<key>backgroundColor</key>
+				<string>#EBEFF3</string>
+			</dict>
+		</dict>
 		<key>AttachIcon</key>
 		<string>FCResources.bundle/Images/freshchat_upload_icon</string>
 		<key>FileAttachmentSendIcon</key>
@@ -152,6 +283,23 @@
 			<string>#FAC386</string>
 			<key>background</key>
 			<string>#FEF1E1</string>
+		</dict>
+		<key>FeedbackSuccessDialog</key>
+		<dict>
+			<key>dividerBackgroundColor</key>
+			<string>#EBEFF3</string>
+			<key>backgroundColor</key>
+			<string>#FEFFFF</string>
+			<key>fontName</key>
+			<string>SYS_DEFAULT_FONT_NAME</string>
+			<key>textColor</key>
+			<string>#475867
+
+
+
+#475867</string>
+			<key>textSize</key>
+			<string>15.0f</string>
 		</dict>
 		<key>FallbackMessageStyle</key>
 		<dict>
@@ -1306,6 +1454,14 @@
 		<string>FCResources.bundle/Images/freshchat_notification_cancel_icon</string>
 		<key>MenuQuickActionIcon</key>
 		<string>FCResources.bundle/Images/freshchat_menu_quick_actions</string>
+		<key>RatingStarIcon</key>
+		<string>FCResources.bundle/Images/freshchat_star_icon</string>
+		<key>RatingUnstarIcon</key>
+		<string>FCResources.bundle/Images/freshchat_unstar_icon</string>
+		<key>OpinionPollIcon</key>
+		<string>FCResources.bundle/Images/freshchat_opinionpoll_tick_icon</string>
+		<key>OpinionPollIcon</key>
+		<string>FCResources.bundle/Images/freshchat_opinionpoll_tick_icon</string>
 		<key>SearchIcon</key>
 		<string>FCResources.bundle/Images/freshchat_search_icon</string>
 		<key>ContactUsIcon</key>

@@ -57,7 +57,8 @@ typedef enum {
     FCEventFileAttachmentOpen,
     FCEventFileAttachmentOpenError,
     FCEventBotFileAttachmentUpload,
-    FCEventQuickActionSelect
+    FCEventQuickActionSelect,
+    FCEventFeedbackMessageSent
 } FCEvent;
 
 /*
@@ -87,7 +88,9 @@ typedef enum {
     FCPropertyOption,
     FCPropertyInviteId,
     FCProperyQuickActionType,
-    FCProperyQuickActionLabel
+    FCProperyQuickActionLabel,
+    FCPropertyFeedbackType,
+    FCPropertyConversationReferenceID
 } FCEventProperty;
 
 
@@ -219,6 +222,19 @@ NS_ASSUME_NONNULL_BEGIN
  *
  */
 -(void)showConversations:(UIViewController *)controller withOptions :(ConversationOptions *)options;
+
+/**
+ *  Show the Conversation / Chat to the user.
+ *
+ *
+ *  @discussion This method lets you launch and present the Channel detail with conversationReferenceID to the user.
+ *
+ *  @param topicName topic name
+ *
+ *  @param referenceID  external reference ID passed as conversation reference id.
+ *
+ */
+-(void)showConversation:(UIViewController *)controller withTopicName:(NSString *)topicName withConversationReferenceID:(NSString *)referenceID;
 
 /**
  *  Show the FAQs to the user.
@@ -421,6 +437,18 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)unreadCountForTags:(nullable NSArray *)tags withCompletion:(void(^)(NSInteger count))completion;
 
 /**
+ *  Get the unread messages count.
+ *
+ *  @discussion This method lets you asynchronously fetch the latest count of conversations that require the user's attention. It is updated with a 2 min interval.
+ *
+ *  @param topicName Tags of channels for which unread count is required.
+ *  @param conversationReferenceID Tags of channels for which unread count is required.
+ *  @param completion Completion block with count.
+ *
+ */
+-(void)unreadCountForTopic:(NSString *) topicName forConversationReferenceID:(NSString *)conversationReferenceID withCompletion:(void(^)(NSInteger count))completion;
+
+/**
  *  Show custom banner for users in message screen
  */
 -(void)updateConversationBannerMessage:(NSString *)message;
@@ -598,6 +626,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 -(nullable NSArray *)tags;
 
+
+/**
+ *  Show Conversation with topic name and reference ID.
+ *
+ *  @discussion This method lets you to launch and present a conversation with topic name and referenceId. If topic name is invalid or empty will open with default topic.
+ *
+ *  @param name of topic
+ *
+ *  @param referenceID for conversation
+ *
+ */
+-(void) setTopicName:(NSString *)name withReferenceID:(NSString *)referenceID;
+
 @end
 
 /**
@@ -650,13 +691,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *tag;
 
 /**
+ *  TopicName for which text to be sent
+ */
+@property (strong, nonatomic) NSString *topicName;
+
+/**
+ *  ReferenceID for which text to be sent
+ */
+@property (strong, nonatomic) NSString *referenceID;
+
+/**
  *  Initialize the message object
  *
- *  @param Message text to send to agent
+ *  @param message text to send to agent
  *
- *  @param Tag of the channel on which the message needs to be sent
+ *  @param tag of the channel on which the message needs to be sent
  */
 -(instancetype)initWithMessage:(NSString *)message andTag:(NSString *)tag;
+
+/**
+ *  Initialize the message object
+ *
+ *  @param message text to send to agent
+ *
+ *  @param  topicName is the channel name on which the message needs to be sent
+ *
+ *  @param  referenceID is the external identifier on which the message needs to be sent
+ */
+-(instancetype)initWithMessage:(NSString *)message andTopicName:(NSString *)topicName andReferenceID:(NSString *)referenceID ;
 
 @end
 
