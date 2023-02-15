@@ -40,7 +40,8 @@ class TiFreshchatModule: TiModule {
     let appId = params["appId"]
     let appKey = params["appKey"]
     let domain = params["domain"]
-    
+    let stringsBundle = params["stringsBundle"]
+
     guard let appId, let appKey else {
       fatalError("appId or appKey is not set")
     }
@@ -48,6 +49,10 @@ class TiFreshchatModule: TiModule {
     let config = FreshchatConfig.init(appID: appId, andAppKey: appKey)
     if let domain {
       config.domain = domain
+    }
+
+    if let stringsBundle {
+      config.stringsBundle = stringsBundle
     }
     
     Freshchat.sharedInstance().initWith(config)
